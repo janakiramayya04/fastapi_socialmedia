@@ -1,17 +1,23 @@
-from typing import List
-from fastapi import FastAPI,Response,status,HTTPException,Depends
-# from app.routers import auth
-import crud
-import models
-from sqlalchemy.orm import Session
-from database import engine,get_db
+from fastapi import FastAPI
+from app import models
+from fastapi.middleware.cors import CORSMiddleware
 
-app=FastAPI()
-models.Base.metadata.create_all(bind=engine)
-import routers.user
-# import schemas
-import routers.post
-import routers.auth
-app.include_router(routers.post.router)
-app.include_router(routers.user.router)
-app.include_router(routers.auth.router)
+from . import database
+
+app = FastAPI()
+# models.Base.metadata.create_all(bind=database.engine)
+from .routers import user, post, auth,vote
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(post.router)
+app.include_router(user.router)
+app.include_router(auth.router)
+app.include_router(vote.router)
