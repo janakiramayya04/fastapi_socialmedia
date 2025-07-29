@@ -10,7 +10,7 @@ from app.models import Base
 # access to the values within the .ini file in use.
 config = context.config
 config.set_main_option(
-    "sqlalchemy.url", "mysql+pymysql://root:rootpass@localhost:3306/socialmedia"
+    "sqlalchemy.url", "postgresql://postgres:J@N@KI004@db.vwojaiguftbspitgrros.supabase.co:5432/postgres"
 )
 
 # Interpret the config file for Python logging.
