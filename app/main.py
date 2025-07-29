@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from . import database
 
 app = FastAPI()
-models.Base.metadata.create_all(bind=database.engine)
+# models.Base.metadata.create_all(bind=database.engine)
 from .routers import user, post, auth, vote
 
 origins = ["*"]
