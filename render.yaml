@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: fastapi-socialmedia
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker main:app
