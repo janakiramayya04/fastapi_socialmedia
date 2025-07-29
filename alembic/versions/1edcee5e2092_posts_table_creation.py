@@ -39,6 +39,6 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    op.drop_table('posts')
+    op.drop_table("posts")
     """Downgrade schema."""
     pass

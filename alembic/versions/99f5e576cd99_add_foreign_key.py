@@ -36,6 +36,6 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     """Downgrade schema."""
-    op.drop_constraint('post_foreign_key',table_name='posts')
-    op.drop_column('posts','owner_id')
+    op.drop_constraint("post_foreign_key", table_name="posts")
+    op.drop_column("posts", "owner_id")
     pass

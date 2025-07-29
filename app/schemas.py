@@ -27,10 +27,12 @@ class Post(PostBase):
     owner: UserOut
     model_config = ConfigDict(from_attributes=True)
 
+
 class PostOut(BaseModel):
-    Post:Post
-    votes:int
-    model_config=ConfigDict(from_attributes=True)
+    Post: Post
+    votes: int
+    model_config = ConfigDict(from_attributes=True)
+
 
 class PostUpdate(BaseModel):  # This schema is for the *input* to the update endpoint
     title: Optional[str] = None

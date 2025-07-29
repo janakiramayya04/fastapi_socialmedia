@@ -3,6 +3,7 @@ from .. import crud  # Go up to 'app' then import 'crud'
 from .. import database  # Go up to 'app' then import 'database'
 from .. import schemas
 from .. import models
+
 # from database import engine, get_db
 from sqlalchemy.orm import Session
 
@@ -10,9 +11,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 crud.models.Base.metadata.create_all(bind=database.engine)
 
 
-@router.post(
-    "/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut
-)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
     creation = crud.create_user(db, user.email, user.password)
     return creation

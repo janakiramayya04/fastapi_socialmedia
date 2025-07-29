@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 from fastapi import HTTPException, status, Depends
 from sqlalchemy.orm import Session
 from dotenv import load_dotenv
+
 # secret_key
 # algorithm
 # expression time
@@ -14,13 +15,13 @@ from app import models
 
 load_dotenv(dotenv_path=".env")
 import os
-SECRET_KEY=os.getenv("SECRET_KEY")
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
-ALGORITHM=os.getenv("ALGORITHM")
+ALGORITHM = os.getenv("ALGORITHM")
 # from sentry_sdk import HttpTransport
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 from .schemas import TokenData, Token
-
 
 
 def create_token(data: dict):

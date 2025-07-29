@@ -7,9 +7,11 @@ from . import models
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-def create_post(db: Session, title: str, content: str, published: bool,owner_id:int):
+def create_post(db: Session, title: str, content: str, published: bool, owner_id: int):
     # o_id=models.User(owner_id=id)
-    c_post = models.Post(title=title, content=content, published=published, owner_id=owner_id)
+    c_post = models.Post(
+        title=title, content=content, published=published, owner_id=owner_id
+    )
     db.add(c_post)
     db.commit()
     db.refresh(c_post)
