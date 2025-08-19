@@ -1,13 +1,5 @@
 
-# FastAPI Social Media ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13%2B-336791?logo=postgresql&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red?logo=sqlalchemy&logoColor=white)
-![Alembic](https://img.shields.io/badge/Alembic-Migrations-orange)
-![JWT](https://img.shields.io/badge/Auth-JWT-yellow?logo=jsonwebtokens&logoColor=black)
-![Gunicorn](https://img.shields.io/badge/Gunicorn-WSGI-green?logo=gunicorn&logoColor=white)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-ff69b4?logo=python&logoColor=white)
-![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
+# FastAPI Social Media ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?logo=fastapi&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13%2B-336791?logo=postgresql&logoColor=white) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red?logo=sqlalchemy&logoColor=white) ![Alembic](https://img.shields.io/badge/Alembic-Migrations-orange) ![JWT](https://img.shields.io/badge/Auth-JWT-yellow?logo=jsonwebtokens&logoColor=black) ![Gunicorn](https://img.shields.io/badge/Gunicorn-WSGI-green?logo=gunicorn&logoColor=white) ![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-ff69b4?logo=python&logoColor=white) ![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
 
 A social media application built with **FastAPI**, providing a RESTful API for users to create posts, vote on posts, and manage their accounts.
 
