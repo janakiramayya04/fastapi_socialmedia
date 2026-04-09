@@ -1,100 +1,195 @@
 
-# FastAPI Social Media ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?logo=fastapi&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13%2B-336791?logo=postgresql&logoColor=white) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red?logo=sqlalchemy&logoColor=white) ![Alembic](https://img.shields.io/badge/Alembic-Migrations-orange) ![JWT](https://img.shields.io/badge/Auth-JWT-yellow?logo=jsonwebtokens&logoColor=black) ![Gunicorn](https://img.shields.io/badge/Gunicorn-WSGI-green?logo=gunicorn&logoColor=white) ![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-ff69b4?logo=python&logoColor=white) ![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
+# 📱 FastAPI Social Media API
 
-A social media application built with **FastAPI**, providing a RESTful API for users to create posts, vote on posts, and manage their accounts.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?logo=fastapi&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13%2B-336791?logo=postgresql&logoColor=white) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red?logo=sqlalchemy&logoColor=white) ![Alembic](https://img.shields.io/badge/Alembic-Migrations-orange) ![JWT](https://img.shields.io/badge/Auth-JWT-yellow?logo=jsonwebtokens&logoColor=black) ![Gunicorn](https://img.shields.io/badge/Gunicorn-WSGI-green?logo=gunicorn&logoColor=white) ![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-ff69b4?logo=python&logoColor=white) ![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
 
----
+A **production-ready social media backend API** built with FastAPI.  
+It allows users to create posts, interact with content, and manage accounts securely using JWT authentication.
+
+----------
+## 📌 Problem Statement
+
+Modern applications require scalable backend systems to manage user-generated content, authentication, and interactions.  
+This project provides a RESTful API to handle posts, users, and engagement efficiently.
+
+----------
 ## 🚀 Features
-- **User Authentication**: Secure user registration and login using JWT tokens.  
-- **CRUD Posts**: Users can create, view, update, and delete their own posts.  
-- **Voting System**: Users can vote on posts.  
-- **Database Migrations**: Alembic is used for schema migrations.  
-- **ORM**: SQLAlchemy is used to interact with the PostgreSQL database.  
 
----
+-   🔐 **JWT Authentication** (Login & Secure Access)
+    
+-   👤 **User Management** (Register & View Users)
+    
+-   📝 **CRUD Operations on Posts**
+    
+-   👍 **Voting System on Posts**
+    
+-   🗄️ **PostgreSQL Database Integration**
+    
+-   🔄 **Database Migrations using Alembic**
+    
+-   ⚡ **Production Deployment (Gunicorn + Uvicorn)**
+    
 
-## 🛠️ Technologies Used
-- **Backend**: Python, FastAPI  
-- **Database**: PostgreSQL  
-- **ORM**: SQLAlchemy  
-- **Authentication**: JWT (JSON Web Tokens)  
-- **Dependency Management**: pip  
-- **Database Migrations**: Alembic  
-- **Deployment**: Gunicorn, Uvicorn, Render  
+----------
+## 🛠 Tech Stack
 
----
+-   **Backend**: Python, FastAPI
+    
+-   **Database**: PostgreSQL
+    
+-   **ORM**: SQLAlchemy
+    
+-   **Authentication**: JWT
+    
+-   **Migrations**: Alembic
+    
+-   **Deployment**: Render (Gunicorn + Uvicorn)
+    
 
-## ⚙️ Installation
+----------
+## 📁 Project Structure
 
-### 1. Clone the repository
 ```bash
-git clone https://github.com/janakiramayya04/fastapi_socialmedia.git
-cd fastapi_socialmedia
-```
-### 2. Create a virtual environment and activate it 
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-### 4. Set up environment variables
- Create a `.env` file in the root directory and add:
- ```bash
- DATABASE_URL="your_postgresql_database_url"
-SECRET_KEY="your_secret_key"
-ALGORITHM="your_jwt_algorithm" 
-```
-### 5. Run database migrations
-```bash 
-alembic upgrade head
-```
-### ▶️ Usage
-Run the application with Uvicorn:
-```bash
-uvicorn app.main:app --reload
-```
-The application will be available at:  
-👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
+app/
+ ├── main.py
+ ├── models/
+ ├── schemas/
+ ├── routers/
+ ├── database/
+ ├── oauth2/
+ ├── config/
 
+```
+
+----------
+## 🔄 How It Works
+
+1.  User registers and logs in to receive a JWT token
+    
+2.  Authenticated users can create, update, and delete posts
+    
+3.  Users can view all posts and interact via voting
+    
+4.  Database stores users, posts, and votes with relationships
+    
+
+----------
 ## 📌 API Endpoints
 
 ### 🔑 Authentication
 
--   **POST** `/login` → Authenticate a user and get a JWT token
+-   **POST** `/login` → Authenticate user & get JWT token
     
 
+----------
 ### 👤 Users
 
--   **POST** `/users/` → Create a new user
+-   **POST** `/users/` → Register a new user
     
--   **GET** `/users/{id}` → Get a user by ID
+-   **GET** `/users/{id}` → Get user details
     
 
+----------
 ### 📝 Posts
 
 -   **GET** `/posts/` → Get all posts
     
--   **GET** `/posts/{id}` → Get a single post by ID
+-   **GET** `/posts/{id}` → Get a single post
     
--   **POST** `/posts/` → Create a new post _(requires authentication)_
+-   **POST** `/posts/` → Create post _(Auth required)_
     
--   **PUT** `/posts/{id}` → Update a post _(requires authentication)_
+-   **PUT** `/posts/{id}` → Update post _(Auth required)_
     
--   **DELETE** `/posts/{id}` → Delete a post _(requires authentication)_
-    
-
-### 👍 Votes
-
--   **POST** `/votes/` → Cast a vote on a post _(requires authentication)_
+-   **DELETE** `/posts/{id}` → Delete post _(Auth required)_
     
 
 ----------
+### 👍 Votes
 
+-   **POST** `/votes/` → Vote on a post _(Auth required)_
+    
+
+----------
+## ⚙️ Setup & Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/janakiramayya04/fastapi_socialmedia.git
+cd fastapi_socialmedia
+
+```
+
+### 2. Create virtual environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+
+```
+
+### 4. Configure environment variables
+
+Create `.env` file:
+
+```bash
+DATABASE_URL="your_postgresql_database_url"
+SECRET_KEY="your_secret_key"
+ALGORITHM="HS256"
+
+```
+
+### 5. Run database migrations
+
+```bash
+alembic upgrade head
+
+```
+
+### 6. Run the application
+
+```bash
+uvicorn app.main:app --reload
+
+```
+
+👉 Access API docs:  
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+----------
 ## 🌍 Deployment
 
-This application is configured for deployment on **Render**.  
-The `render.yaml` file defines the service configuration.  
-The application is served using **Gunicorn** with **Uvicorn workers**.
+This application is deployed using **Render** with:
+
+-   **Gunicorn** as process manager
+    
+-   **Uvicorn workers** for ASGI handling
+    
+-   `render.yaml` for deployment configuration
+    
+
+----------
+## 🚀 Future Improvements
+
+-   Follow/Unfollow users
+    
+-   Comments system
+    
+-   Notifications
+    
+-   Rate limiting
+    
+-   API pagination & caching
+    
+
+----------
+## 📜 License
+
+This project is licensed under the MIT License.
